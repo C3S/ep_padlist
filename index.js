@@ -23,11 +23,11 @@ exports.expressCreateServer = function (hook_name, args, cb) {
 }
 
 exports.indexWrapper = function (hook_name, args, cb) {
-  args.content = '<div style="text-align:center;"><img src="/list/static/img/logo_horiz_w700.png" /></div><br>'
+  args.content = '<div style="text-align:center;"><img src="list/static/img/logo_horiz_w700.png" /></div><br>'
     + args.content
     + '<br>'
     + '<div style="text-align:center;">'
-    +   '<a href="/list" style="color:#000;">Pad Liste</a>'
+    +   '<a href="list" style="color:#000;">Pad Liste</a>'
     +   ' | '
     +   '<a href="http://gpad.c3s.cc/" style="color:#000;">Gruppenpads</a>'
     + '</div>';
