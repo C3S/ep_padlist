@@ -9,6 +9,10 @@ exports.expressCreateServer = function (hook_name, args, cb) {
       pads: []
     };
     padManager.listAllPads(function(null_value, pads){
+      pads.padIDs = pads.padIDs.filter(function(padid) {
+        grouppads = /^g.\w{16}\$.*$/
+        return !padid.match(grouppads)
+      })
       render_args.pads = pads.padIDs;
       res.send( eejs.require('ep_padlist/templates/pads.html', render_args) );
       cb();
@@ -19,7 +23,14 @@ exports.expressCreateServer = function (hook_name, args, cb) {
 }
 
 exports.indexWrapper = function (hook_name, args, cb) {
-  args.content = args.content + '<br><br><div style="text-align:center;"><a href="/list">All Pads</a></div>';
+  args.content = '<div style="text-align:center;"><img src="/list/static/img/logo_horiz_w700.png" /></div><br>'
+    + args.content
+    + '<br>'
+    + '<div style="text-align:center;">'
+    +   '<a href="/list" style="color:#000;">Pad Liste</a>'
+    +   ' | '
+    +   '<a href="http://etherpad.c3s.cc/" style="color:#000;">Gruppenpads</a>'
+    + '</div>';
   return cb();
 }
 

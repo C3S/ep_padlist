@@ -3,18 +3,20 @@
   <title>Pads</title>
   <meta name="description" content="All Pads">
   <meta name="viewport" content="width=device-width">
-  <link href='http://fonts.googleapis.com/css?family=Cousine:400,700' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="/list/static/css/main.css">
-  <script src="http://code.jquery.com/jquery-2.0.3.min.js" ></script>
+  <script src="/static/js/jquery.js"></script>
 </head>
 <body>
+  <div style="text-align:center; margin:40px 0 0 0"><img src="/list/static/img/logo_horiz_w700.png" /></div><br>
   <div class="head">
-    <h1>Pads</h1>
+    <div style="text-align:center;">
+      <a href="/">Zurück</a> | <a href="http://etherpad.c3s.cc/">Gruppenpads</a>
+    </div>
     <input type="search" placeholder="search pads">
   </div>
   <ul>
     <% pads.forEach(function(pad){ %>
-      <li><a href="/<%= pad.toString() %>"><%= pad.toString() %></a></li>
+      <li><a href="p/<%= pad.toString() %>"><%= pad.toString() %></a></li>
     <% }) %>
   </ul>
 
